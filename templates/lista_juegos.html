@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Juegos
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h2>Lista de Juegos</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for juego in juegos %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ juego.nombre }} - ${{ juego.precio }} - {{ juego.categoria.nombre }}
+                                <span>
+                                    <a href="{% url 'editar_juego' juego.id %}" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="{% url 'eliminar_juego' juego.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                </span>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item text-center">No hay juegos disponibles.</li>
+                        {% endfor %}
+                    </ul>
+                    <hr>
+                    <div class="text-center">
+                        <a href="{% url 'crear_juego' %}" class="btn btn-primary">Crear Juego</a>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="{% url 'home' %}" class="btn btn-secondary">Volver al Inicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
