@@ -26,8 +26,8 @@ class Buyer(models.Model):
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128, validators=[MinLengthValidator(6)])
-    birth_date = models.DateField()
-    address = models.TextField(blank=True)  # La dirección de despacho es opcional
+    #birth_date = models.DateField()
+    address = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
