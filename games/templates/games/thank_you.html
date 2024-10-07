@@ -1,0 +1,11 @@
+{% extends "games/base.html" %}
+
+{% block title %}Gracias por registrarse{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+    <h2>¡Gracias por registrarse!</h2>
+    <p>Ahora podrá acumular recompensas por sus compras.</p>
+    <a href="{% url 'category_list' %}" class="btn btn-primary">Volver a la tienda</a>
+</div>
+{% endblock %}
